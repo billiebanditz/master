@@ -1,19 +1,22 @@
 <?php
 /*
-copyright @ bncautowork.com
+copyright @ medantechno.com
 Modified by Ilyasa
-And Modified by BillieDhikaS
 2017
 */
 require_once('./line_class.php');
-$channelAccessToken = 'y5OVSLv5M35qlNZLTg0OLJQH81id/qGMHREizJGvvnQnuU7V8dbWD6jw31pcrznA6R1MEd9aVP0lIOsTM1lj9G1G97pXzoN5SOPfw5duiIgkVGDcYKu7m9FSz+LlT2oVHo0UMapj5iEkymRATJwvTQdB04t89/1O/w1cDnyilFU='; //Your Channel Access Token
-$channelSecret = '200a64520445dbf90c137ead511293b3';//Your Channel Secret
+
+$channelAccessToken = 'PkY/i10WmtAM0pCcSb+QDq0jQDwMIriB2iMiDW9kVpak7/9BabEJOKYVULinM24v6R1MEd9aVP0lIOsTM1lj9G1G97pXzoN5SOPfw5duiIh3SI9cdvEvw5uR1KnnMHgUxNmgVIM8XYBmf7qFy20wuQdB04t89/1O/w1cDnyilFU='; //Your Channel Access Token
+$channelSecret = 'aab7e75d0e6e8fc1b1555266e07e4086';//Your Channel Secret
+
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
+
 $userId 	= $client->parseEvents()[0]['source']['userId'];
 $replyToken = $client->parseEvents()[0]['replyToken'];
 $message 	= $client->parseEvents()[0]['message'];
 $profil = $client->profil($userId);
 $pesan_datang = $message['text'];
+
 if($message['type']=='sticker')
 {	
 	$balas = array(
@@ -22,7 +25,7 @@ if($message['type']=='sticker')
 							'messages' => array(
 								array(
 										'type' => 'text',									
-										'text' => 'jangan pake sticker dehh.'										
+										'text' => 'Terima Kasih Stikernya.'										
 									
 									)
 							)
@@ -46,7 +49,7 @@ if($url['result'] == 404)
 							'messages' => array(
 								array(
 										'type' => 'text',					
-										'text' => 'Pake bahasa yg bener donggg :D.'
+										'text' => 'Mohon Gunakan Bahasa Indonesia Yang Benar :D.'
 									)
 							)
 						);
@@ -63,7 +66,7 @@ if($url['result'] != 100)
 							'messages' => array(
 								array(
 										'type' => 'text',					
-										'text' => 'Sorry '.$profil->displayName.' gw lg sibuk nih.'
+										'text' => 'Maaf '.$profil->displayName.' Server Kami Sedang Sibuk Sekarang.'
 									)
 							)
 						);
@@ -85,5 +88,8 @@ if($url['result'] != 100)
 }
  
 $result =  json_encode($balas);
+
 file_put_contents('./reply.json',$result);
+
+
 $client->replyMessage($balas);
