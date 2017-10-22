@@ -33,7 +33,7 @@ function simpen($dmn, $apa) {
     fclose(fopen($dmn, "a+"));
 }
  
-$upd = json_decode(hajar("https://api.telegram.org/bot" . $aing['tkn'] . "/getUpdates"), true); // mengambil pesan dari akun bot
+$upd = json_decode(hajar("https://api.line.me/v2/bot/message" . $aing['tkn'] . "/getUpdates"), true); // mengambil pesan dari akun bot
 $buka = fopen($aing['log'], "r");
 $scan = fscanf($buka, "%d");
  
@@ -61,7 +61,7 @@ if ($upd['ok'] == 1) {
             }
         } else {
             # ini kondisi dimana server SimSimi menerima pesan bot dengan baik
-           $krm = json_decode(hajar("https://api.telegram.org/bot" . $aing['tkn'] . "/sendMessage", array(
+           $krm = json_decode(hajar("https://api.line.me/v2/bot/message" . $aing['tkn'] . "/sendMessage", array(
                 "chat_id"=>$psn['chat']['id'],
                 "text"=>$simi['res'],
                 "reply_to_message_id"=>$psn['message_id'])), true);
