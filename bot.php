@@ -25,7 +25,7 @@ if($message['type']=='sticker')
 							'messages' => array(
 								array(
 										'type' => 'text',									
-										'text' => 'Terima Kasih Stikernya.'										
+										'text' => 'jangan pake sticker woyyyy.'										
 									
 									)
 							)
@@ -49,7 +49,7 @@ if($url['result'] == 404)
 							'messages' => array(
 								array(
 										'type' => 'text',					
-										'text' => 'Mohon Gunakan Bahasa Indonesia Yang Benar :D.'
+										'text' => 'bahasa paan tuh.'
 									)
 							)
 						);
@@ -66,7 +66,7 @@ if($url['result'] != 100)
 							'messages' => array(
 								array(
 										'type' => 'text',					
-										'text' => 'Maaf '.$profil->displayName.' Server Kami Sedang Sibuk Sekarang.'
+										'text' => 'sorry ya '.$profil->displayName.' gw lg sibuk nih.'
 									)
 							)
 						);
