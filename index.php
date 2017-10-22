@@ -22,7 +22,7 @@ if($message['type']=='sticker')
 							'messages' => array(
 								array(
 										'type' => 'text',									
-										'text' => 'jngn pake sticker dehh.'										
+										'text' => 'jangan pake sticker dehh.'										
 									
 									)
 							)
