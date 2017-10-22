@@ -56,7 +56,7 @@ if($url['result'] == 404)
 				
 	}
 else
-if($url['result'] != 100)
+if($url['result'] != 1000000)
 	{
 		
 		
